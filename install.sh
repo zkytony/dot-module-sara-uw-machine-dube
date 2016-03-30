@@ -40,12 +40,10 @@ print_warning "This is just an example that does nothing!"
 
 
 ## -------------------------------------------------------------
-# print_header "Installing system-wide config files"
-# dot_link_config_sys "etc/default/crda"
-# dot_copy_config_sys "usr/lib/pm-utils/power.d/powertop_toggables"
-# dot_fill_config_sys "usr/share/sddm/scripts/Xsetup"
-# Done
-# print_status "Done!"
+print_header "Installing system-wide config files"
+dot_link_config_sys "etc/ssh/sshd_config"
+Done
+print_status "Done!"
 
 
 ## -------------------------------------------------------------
