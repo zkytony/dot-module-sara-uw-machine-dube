@@ -42,7 +42,7 @@ print_warning "This is just an example that does nothing!"
 ## -------------------------------------------------------------
 print_header "Installing system-wide config files"
 dot_link_config_sys "etc/ssh/sshd_config"
-Done
+# Done
 print_status "Done!"
 
 
