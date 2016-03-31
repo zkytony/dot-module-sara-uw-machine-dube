@@ -13,7 +13,7 @@ dot_check_virtualenv  # Check for virtualenv
 ## -------------------------------------------------------------
 sshd_cfg_path="etc/ssh/sshd_config"
 print_header "Install the sshd_config file to $sshd_cfg_path"
-dot_link_config_sys $sshd_cfg_path
+dot_copy_config_sys $sshd_cfg_path
 
 # Done
 print_status "Done!"
