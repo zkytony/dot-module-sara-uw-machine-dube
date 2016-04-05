@@ -1,21 +1,57 @@
-# This is ssh server systemwide configuration file.
+Port 24
+Protocol 2
 
-Port 22
-# ListenAddress 192.168.1.1
-HostKey /etc/ssh/ssh_host_key
-ServerKeyBits 1024
-LoginGraceTime 600
+# HostKeys for protocol version 2
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+#Privilege Separation is turned on for security
+UsePrivilegeSeparation yes
+# Lifetime and size of ephemeral version 1 server key
 KeyRegenerationInterval 3600
-PermitRootLogin no
-IgnoreRhosts yes
-IgnoreUserKnownHosts yes
-StrictModes yes
-X11Forwarding no
-PrintMotd yes
+ServerKeyBits 768
+
+# Logging
 SyslogFacility AUTH
 LogLevel INFO
-RhostsAuthentication no
-RhostsRSAAuthentication no
+
+# Authentication
+LoginGraceTime 120
+PermitRootLogin no
+StrictModes yes
 RSAAuthentication yes
-PasswordAuthentication yes
+PubkeyAuthentication yes
 PermitEmptyPasswords no
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+
+# Other
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+
+# Keepalive
+TCPKeepAlive yes
+ClientAliveInterval 30
+ClientAliveCountMax 99999
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# SFTP
+# Subsystem sftp /usr/lib/openssh/sftp-server
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
