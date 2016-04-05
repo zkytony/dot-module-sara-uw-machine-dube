@@ -12,7 +12,9 @@ dot_check_virtualenv  # Check for virtualenv
 
 ## -------------------------------------------------------------
 print_header "Installing SSH Server Configuration"
-dot_link_config_sys "etc/ssh/sshd_config"
+dot_copy_config_sys "etc/ssh/sshd_config"
+sudo chown root:root "/etc/ssh/sshd_config"
+sudo chmod 644 "/etc/ssh/sshd_config"
 
 # Done
 print_status "Done!"
