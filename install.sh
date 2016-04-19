@@ -16,6 +16,13 @@ dot_copy_config_sys "etc/ssh/sshd_config"
 sudo chown root:root "/etc/ssh/sshd_config"
 sudo chmod 644 "/etc/ssh/sshd_config"
 
+
+## -------------------------------------------------------------
+print_header "Installing Network Configuration"
+dot_copy_config_sys "etc/network/interfaces"
+sudo chown root:root "/etc/network/interfaces"
+sudo chmod 644 "/etc/network/interfaces"
+
 # Done
 print_status "Done!"
 

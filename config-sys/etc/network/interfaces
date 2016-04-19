@@ -1,0 +1,35 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 192.168.10.1
+    netmask 255.255.255.0
+    network 192.168.10.0
+    broadcast 192.168.10.255
+
+auto eth1
+iface eth1 inet static
+    address 192.168.30.1
+    netmask 255.255.255.0
+    network 192.168.30.0
+    broadcast 192.168.30.255
+    mtu 8228
+
+auto wlan0
+iface wlan0 inet static
+    address 128.208.7.254
+    netmask 255.255.255.0
+    network 128.208.7.0
+    broadcast 128.208.7.255
+    gateway 128.208.7.100
+    dns-nameservers 128.208.7.1, 128.208.6.1
+    wireless-essid CSE-Local
+
+auto wlan1
+iface wlan1 inet static
+    address 192.168.40.1
+    netmask 255.255.255.0
+    network 192.168.40.0
+    broadcast 192.168.40.255
